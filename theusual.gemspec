@@ -1,16 +1,12 @@
-$LOAD_PATH.unshift 'lib'
-package_name = 'theusual'
-require "#{package_name}"
-package = TheUsual
-
+require_relative 'lib/theusual/version'
 
 Gem::Specification.new do |s|
-  s.name        = package_name
-  s.version     = package.const_get 'VERSION'
+  s.name        = 'theusual'
+  s.version     = TheUsual::VERSION
   s.authors     = ['Daniel Pepper']
-  s.summary     = package.to_s
+  s.summary     = 'TheUsual'
   s.description = 'A handful of useful hacks...good for any project'
-  s.homepage    = "https://github.com/dpep/rb_#{package_name}"
+  s.homepage    = 'https://github.com/dpep/rb_theusual'
   s.license     = 'MIT'
 
   s.files       = Dir.glob('lib/**/*')

@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.files       = Dir.glob('lib/**/*')
   s.test_files  = Dir.glob('test/**/test_*')
 
-  s.add_development_dependency 'byebug'
+  s.add_development_dependency 'debug'
   s.add_development_dependency 'minitest'
   s.add_development_dependency 'rake'
 end

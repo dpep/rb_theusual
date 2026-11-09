@@ -8,7 +8,7 @@ class TimeTest < Minitest::Test
   def test_ms
     ts = Time.now.utc
 
-    assert(ts.to_ms.class < Integer)
+    assert(ts.to_ms.class <= Integer)
 
     assert(
       # to_ms will truncate, so allow for small error

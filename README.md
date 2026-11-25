@@ -1,5 +1,7 @@
 TheUsual
 ======
+![Gem](https://img.shields.io/gem/dt/theusual?style=plastic)
+[![codecov](https://codecov.io/gh/dpep/rb_theusual/branch/main/graph/badge.svg)](https://codecov.io/gh/dpep/rb_theusual)
 
 A handful of useful hacks...good for any project
 

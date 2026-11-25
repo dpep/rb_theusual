@@ -12,6 +12,15 @@ RSpec.describe Array do
 
   describe '#sum' do
     it { expect([1, 2, 3].sum).to eq 6 }
+
+    it 'adds an initial value' do
+      expect([1, 2, 3].sum(10)).to eq 16
+      expect([].sum(10)).to eq 10
+    end
+
+    it 'sums block results' do
+      expect(['a', 'bc'].sum { |s| s.size }).to eq 3
+    end
   end
 
   describe '#avg' do

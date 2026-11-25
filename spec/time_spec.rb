@@ -27,5 +27,42 @@ RSpec.describe Time do
     it 'resolves seconds when asked' do
       expect(ago(1).humanize(nil, seconds: true)).to eq 'a second'
     end
+
+    context 'with a fixed reference time' do
+      let(:now) { Time.utc(2020, 6, 1) }
+
+      def humanize(seconds, **opts) = (now - seconds).humanize(now, opts)
+
+      it 'buckets seconds' do
+        expect(humanize(3, seconds: true)).to eq 'less than 5 seconds'
+        expect(humanize(7, seconds: true)).to eq 'less than 10 seconds'
+        expect(humanize(20, seconds: true)).to eq 'less than 30 seconds'
+        expect(humanize(35, seconds: true)).to eq 'half a minute'
+        expect(humanize(45, seconds: true)).to eq 'less than a minute'
+      end
+
+      it 'buckets minutes and hours' do
+        expect(humanize(5 * 60)).to eq '5 minutes'
+        expect(humanize(50 * 60)).to eq 'about an hour'
+        expect(humanize(59 * 60)).to eq 'about an hour'
+        expect(humanize(5 * 3600)).to eq 'about 5 hours'
+      end
+
+      it 'buckets days and months' do
+        expect(humanize(3 * 86_400)).to eq '3 days'
+        expect(humanize(45 * 86_400)).to eq 'about 2 months'
+        expect(humanize(120 * 86_400)).to eq '4 months'
+      end
+
+      it 'buckets years' do
+        expect(humanize(770 * 86_400)).to eq 'about 2 years'
+        expect(humanize(915 * 86_400)).to eq 'over 2 years'
+        expect(humanize(1060 * 86_400)).to eq 'almost 3 years'
+      end
+
+      it 'is symmetric' do
+        expect(now.humanize(now - 5 * 60)).to eq '5 minutes'
+      end
+    end
   end
 end

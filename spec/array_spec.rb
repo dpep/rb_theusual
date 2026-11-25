@@ -25,6 +25,21 @@ RSpec.describe Array do
     end
   end
 
+  describe '#std' do
+    it 'computes the population standard deviation' do
+      expect([2, 4, 4, 4, 5, 5, 7, 9].std).to eq 2.0
+      expect([1].std).to eq 0.0
+    end
+
+    it 'is NaN when empty' do
+      expect([].std).to be_nan
+    end
+
+    it 'rejects non-numerics' do
+      expect { ['a'].std }.to raise_error(ArgumentError)
+    end
+  end
+
   describe '#grepv' do
     it 'selects elements that do not match' do
       data = ['a', 'ab', 'bab', 'bbb', 'ccc']

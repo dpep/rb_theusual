@@ -10,16 +10,11 @@ RSpec.describe Array do
     end
   end
 
-  describe '#sum' do
-    it { expect([1, 2, 3].sum).to eq 6 }
-
-    it 'adds an initial value' do
-      expect([1, 2, 3].sum(10)).to eq 16
-      expect([].sum(10)).to eq 10
-    end
-
-    it 'sums block results' do
-      expect(['a', 'bc'].sum { |s| s.size }).to eq 3
+  describe '#total' do
+    it 'aliases core Array#sum' do
+      expect([1, 2, 3].total).to eq 6
+      expect([1, 2, 3].total(10)).to eq 16
+      expect([0.1, 0.2, 0.3].total).to eq 0.6
     end
   end
 

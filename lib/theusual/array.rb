@@ -16,12 +16,6 @@ class Array
 
 
   #####  Numerical Operations  #####
-  def sum(*args, &block)
-    return super if block
-
-    numerics?
-    reduce(*args, :+)
-  end
   alias_method :total, :sum
 
 

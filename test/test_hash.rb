@@ -504,6 +504,11 @@ class HashTest < Minitest::Test
       }.symbolize_keys(true)
     )
 
+    assert_equal(
+      {a: { b: { c: 1 } } },
+      {'a' => { 'b' => { 'c' => 1 } } }.symbolize_keys(true)
+    )
+
 
     h = {'a' => 1, 'b' => 2, 'c' => 3}
     h.symbolize_keys

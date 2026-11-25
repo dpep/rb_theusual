@@ -82,7 +82,7 @@ class Hash
 
   # map the block's results back to a hash
   def hmap(&block)
-    clone.clear.merge Hash[ map {|k, v| block.call(k, v) }.compact ]
+    clone.clear.merge Hash.hmap(self, &block)
   end
 
   def hmap!(&block)
@@ -97,11 +97,9 @@ class Hash
   end
 
   def kmap!(&block)
-    replace Hash[
-      map do |k, v|
-        [ block.arity <= 1 ? block.call(k) : block.call(k, v), v ]
-      end
-    ]
+    hmap! do |k, v|
+      [ block.arity <= 1 ? block.call(k) : block.call(k, v), v ]
+    end
   end
 
 
@@ -122,11 +120,7 @@ class Hash
   def ksort(&block)
     Hash[
       sort_by do |k, v|
-        if block
-          yield k
-        else
-          k
-        end
+        block ? yield(k) : k
       end
     ]
   end
@@ -139,11 +133,7 @@ class Hash
   def vsort(&block)
     Hash[
       sort_by do |k, v|
-        if block
-          yield v
-        else
-          v
-        end
+        block ? yield(v) : v
       end
     ]
   end
@@ -161,10 +151,10 @@ class Hash
 
 
   def symbolize_keys(deep = false)
-    Hash.hmap each do |k, v|
+    hmap do |k, v|
       [
         k.respond_to?(:to_sym) ? k.to_sym : k,
-        (deep and v.is_a?(Hash)) ? v.symbolize_keys : v
+        (deep and v.is_a?(Hash)) ? v.symbolize_keys(deep) : v
       ]
     end
   end

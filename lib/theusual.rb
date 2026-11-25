@@ -6,7 +6,6 @@ module TheUsual
   MODULES = [
     'array',
     'enumerable',
-    'failure',
     'hash',
     'ipaddr',
     'mongoid',
@@ -17,10 +16,6 @@ module TheUsual
     'string',
     'time',
   ]
-
-  # functions defined in sub-libs that can be include-ed
-  # into another namespace
-  @include_fns = Set.new
 
 
   def self.load *modules
@@ -72,20 +67,6 @@ module TheUsual
         end
       end
     end.compact
-  end
-
-
-  def self.include_fn fn
-    @include_fns << fn
-  end
-
-
-  def self.included base
-    @include_fns.each do |name|
-      base.send :define_method, name do |*args|
-        TheUsual.method(name).send *args
-      end
-    end
   end
 
 end

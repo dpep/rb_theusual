@@ -5,6 +5,7 @@ require_relative 'theusual/version.rb'
 module TheUsual
   MODULES = [
     'array',
+    'enumerable',
     'failure',
     'hash',
     'ipaddr',

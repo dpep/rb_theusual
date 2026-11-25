@@ -13,7 +13,7 @@ A handful of useful hacks...good for any project
 require 'theusual'
 TheUsual::load :all
 
-Hash.map [:a, :b, :c] do |v|
+Hash.hmap [:a, :b, :c] do |v|
   [ v, v ]
 end
 # => { a: :a, b: :b, c: :c }

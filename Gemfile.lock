@@ -24,6 +24,7 @@ GEM
     pp (0.6.4)
       prettyprint
     prettyprint (0.2.1)
+    prism (2.1.0)
     prism (2.1.0-arm64-darwin)
     rake (13.4.2)
     rbs (4.2.0)
@@ -49,4 +50,4 @@ DEPENDENCIES
   theusual!
 
 BUNDLED WITH
-  4.0.19
+  4.1.1

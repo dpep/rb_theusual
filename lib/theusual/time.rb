@@ -44,7 +44,7 @@ class Time
       end
     when 1                then [ :a_minute ]
     when 2...45           then [ :x_minutes,      distance_in_minutes ]
-    when 45...59          then [ :about_an_hour ]
+    when 45...60          then [ :about_an_hour ]
     when 60               then [ :an_hour ]
     when 61...90          then [ :about_an_hour ]
     # 90 mins up to 24 hours

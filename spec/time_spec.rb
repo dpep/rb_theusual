@@ -60,6 +60,13 @@ RSpec.describe Time do
         expect(humanize(1060 * 86_400)).to eq 'almost 3 years'
       end
 
+      it 'uses singular units for one' do
+        expect(humanize(31 * 86_400)).to eq 'about 1 month'
+        expect(humanize(370 * 86_400)).to eq 'about 1 year'
+        expect(humanize(550 * 86_400)).to eq 'over 1 year'
+        expect(humanize(320 * 86_400)).to eq '11 months'
+      end
+
       it 'is symmetric' do
         expect(now.humanize(now - 5 * 60)).to eq '5 minutes'
       end

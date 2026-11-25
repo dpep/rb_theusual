@@ -9,16 +9,16 @@ A handful of useful hacks...good for any project
 
 
 #### Usage
-```
+```ruby
 require 'theusual'
 TheUsual::load :all
 
 Hash.map [:a, :b, :c] do |v|
   [ v, v ]
 end
-=> { a: :a, b: :b, c: :c }
+# => { a: :a, b: :b, c: :c }
 
 
 [:a, nil, '', :b].compact :blanks
-=> [ :a, :b ]
+# => [ :a, :b ]
 ```

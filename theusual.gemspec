@@ -11,6 +11,9 @@ Gem::Specification.new do |s|
 
   s.files       = Dir.glob('lib/**/*')
 
+  s.required_ruby_version = '>= 3.3'
+
   s.add_development_dependency 'debug'
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'simplecov'
 end

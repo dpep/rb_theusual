@@ -29,11 +29,22 @@ RSpec.describe String do
     end
   end
 
+  describe '#numeric?' do
+    it 'aliases is_f?' do
+      expect('1.5'.numeric?).to be true
+      expect('abc'.numeric?).to be false
+    end
+  end
+
   describe '#to_bool' do
     it 'parses booleans case-insensitively' do
       expect('true'.to_bool).to be true
       expect('True'.to_bool).to be true
       expect('false'.to_bool).to be false
+    end
+
+    it 'raises for anything else' do
+      expect { 'yes'.to_bool }.to raise_error(ArgumentError)
     end
   end
 end

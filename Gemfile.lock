@@ -25,7 +25,7 @@ GEM
       prettyprint
     prettyprint (0.2.1)
     prism (2.1.0-arm64-darwin)
-    rake (13.0.1)
+    rake (13.4.2)
     rbs (4.2.0)
       logger
       prism (>= 1.6.0)

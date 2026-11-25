@@ -37,7 +37,7 @@ module TheUsual
       'net/ssh' => 'ssh',
     }
 
-    raise ArgumentError 'did you mean load(:all) ?' if modules.empty?
+    raise ArgumentError, 'did you mean load(:all) ?' if modules.empty?
 
     modules.map! &:to_s
     to_load = if [:all, 'all', '*'].include? modules.first

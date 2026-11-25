@@ -9,7 +9,7 @@ GEM
     debug (1.11.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
-    drb (2.2.3)
+    diff-lcs (1.6.2)
     erb (6.0.7)
     io-console (0.9.5)
     irb (1.19.0)
@@ -18,15 +18,11 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     logger (1.7.0)
-    minitest (6.1.0)
-      drb (~> 2.0)
-      prism (>= 1.5, < 3)
     pp (0.6.4)
       prettyprint
     prettyprint (0.2.1)
     prism (2.1.0)
     prism (2.1.0-arm64-darwin)
-    rake (13.4.2)
     rbs (4.2.0)
       logger
       prism (>= 1.6.0)
@@ -38,6 +34,19 @@ GEM
       tsort
     reline (0.7.0)
       io-console (~> 0.5)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.7)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.9)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.8)
     tsort (0.2.0)
 
 PLATFORMS
@@ -45,8 +54,7 @@ PLATFORMS
 
 DEPENDENCIES
   debug
-  minitest
-  rake
+  rspec
   theusual!
 
 BUNDLED WITH

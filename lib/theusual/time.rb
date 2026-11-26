@@ -81,11 +81,14 @@ class Time
       end
     end
 
-    if res.count > 1
-      res.first.to_s.sub 'x', res.last.to_s
-    else
-      res.first.to_s
-    end.gsub '_', ' '
+    label, count = res
+    label = label.to_s
+    if count
+      label = label.sub('x', count.to_s)
+      label = label.delete_suffix('s') if count == 1
+    end
+
+    label.tr('_', ' ')
   end
 
 end

@@ -34,6 +34,7 @@ RSpec.describe Time do
       def humanize(seconds, **opts) = (now - seconds).humanize(now, opts)
 
       it 'buckets seconds' do
+        expect(humanize(0, seconds: true)).to eq 'just now'
         expect(humanize(3, seconds: true)).to eq 'less than 5 seconds'
         expect(humanize(7, seconds: true)).to eq 'less than 10 seconds'
         expect(humanize(20, seconds: true)).to eq 'less than 30 seconds'

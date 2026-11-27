@@ -27,13 +27,13 @@ class Time
     when 0
       if options[:seconds]
         case distance_in_seconds
+          when 0      then [ :just_now ]
           when 1      then [ :a_second ]
           when 2..4   then [ :less_than_x_seconds, 5 ]
           when 5..9   then [ :less_than_x_seconds, 10 ]
           when 10..29 then [ :less_than_x_seconds, 30 ]
           when 30..39 then [ :half_a_minute ]
-          when 40..59 then [ :less_than_a_minute ]
-          else             [ :a_minute ]
+          else             [ :less_than_a_minute ]
         end
       else
         if distance_in_seconds == 0
